@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="my-4">Cadastrar produto</h1>
+  <h1 class="my-4">{{ id ? "Editar" : "Cadastrar" }} produto</h1>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">

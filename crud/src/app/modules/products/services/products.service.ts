@@ -11,7 +11,23 @@ export class ProductsService {
 
   constructor(private http: HttpClient) {}
 
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
+  }
+
+  getProductById(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+
   saveProduct(product: Product): Observable<void> {
     return this.http.post<void>(this.apiUrl, product);
+  }
+
+  updateProduct(product: Product): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${product.id}`, product);
+  }
+
+  deleteProduct(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

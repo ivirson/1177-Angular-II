@@ -23,7 +23,7 @@ export const routes: Routes = [
         component: ProductsCreateComponent,
       },
       {
-        path: 'edit',
+        path: 'edit/:id',
         component: ProductsCreateComponent,
       },
     ],

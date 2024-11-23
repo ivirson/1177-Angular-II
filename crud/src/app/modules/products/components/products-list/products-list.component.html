@@ -1,1 +1,44 @@
-<p>products-list works!</p>
+<div class="container">
+  <h1 class="my-4">Produtos</h1>
+
+  <div class="row my-4">
+    @for(product of products; track product.id) {
+    <div class="col-4">
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          [src]="product.image"
+          alt="Imagem do {{ product.name }}"
+        />
+        <mat-card-content>
+          <p>
+            {{ product.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-end">
+          <button
+            mat-flat-button
+            color="primary"
+            class="me-2"
+            routerLink="/products/edit/{{ product.id }}"
+          >
+            Editar
+          </button>
+          <button
+            mat-flat-button
+            color="warn"
+            (click)="deleteProduct(product.id!)"
+          >
+            Excluir
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    } @empty {
+    <div class="col-12 text-center">Nenhum produto encontrado.</div>
+    }
+  </div>
+</div>
