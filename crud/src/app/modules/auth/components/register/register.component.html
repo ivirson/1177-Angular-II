@@ -1,60 +1,126 @@
 <div class="container">
-  <h1 class="my-4">Cadastrar usuário</h1>
+  <h1 class="my-4">Registrar-se</h1>
 
-  <div class="row">
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input matInput />
-      </mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend>Dados pessoais</legend>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Profissão</mat-label>
+            <input matInput formControlName="profession" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Data Nasc.</mat-label>
+            <input
+              matInput
+              formControlName="birthDate"
+              mask="00/00/0000"
+              [dropSpecialCharacters]="false"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>CPF</mat-label>
+            <input
+              matInput
+              formControlName="documentNumber"
+              mask="000.000.000-00"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="phone" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="password" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Confirmação de Senha</mat-label>
+            <input matInput formControlName="passwordConfirm" />
+          </mat-form-field>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset formGroupName="address">
+      <legend>Endereço</legend>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>CEP</mat-label>
+            <input
+              matInput
+              formControlName="zipCode"
+              mask="00000-000"
+              [dropSpecialCharacters]="false"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Rua</mat-label>
+            <input matInput formControlName="street" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Número</mat-label>
+            <input matInput formControlName="number" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Complemento</mat-label>
+            <input matInput formControlName="complement" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Bairro</mat-label>
+            <input matInput formControlName="neighborhood" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input matInput formControlName="city" />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <input matInput formControlName="state" />
+          </mat-form-field>
+        </div>
+      </div>
+    </fieldset>
+    <div class="col-md-12">
+      <button mat-flat-button color="primary" [disabled]="form.invalid">
+        Salvar
+      </button>
     </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Profissão</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Data de Nascimento</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>CPF</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>E-mail</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Telefone</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Senha</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Confirmação de senha</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-    <div class="col-md-6">
-      <mat-form-field appearance="outline">
-        <mat-label>Renda</mat-label>
-        <input matInput />
-      </mat-form-field>
-    </div>
-  </div>
+  </form>
 </div>

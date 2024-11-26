@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="container">
+  <h1 class="my-4">Login</h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
+    </div>
+    <div class="col-md-12">
+      <button mat-flat-button color="primary" [disabled]="form.invalid">
+        Login
+      </button>
+    </div>
+  </form>
+</div>

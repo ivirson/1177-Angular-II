@@ -12,11 +12,17 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    const token = sessionStorage.getItem('USER_TOKEN');
+    return this.http.get<Product[]>(this.apiUrl, {
+      headers: { Authorization: `Bearer ${token!}` },
+    });
   }
 
   getProductById(id: string): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+    const token = sessionStorage.getItem('USER_TOKEN');
+    return this.http.get<Product>(`${this.apiUrl}/${id}`, {
+      headers: { Authorization: `Bearer ${token!}` },
+    });
   }
 
   saveProduct(product: Product): Observable<void> {
