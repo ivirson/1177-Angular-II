@@ -7,22 +7,16 @@ import { Product } from '../models/products.model';
   providedIn: 'root',
 })
 export class ProductsService {
-  apiUrl = 'http://localhost:3000/products';
+  apiUrl = 'http://localhost:3000/productst';
 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    const token = sessionStorage.getItem('USER_TOKEN');
-    return this.http.get<Product[]>(this.apiUrl, {
-      headers: { Authorization: `Bearer ${token!}` },
-    });
+    return this.http.get<Product[]>(this.apiUrl);
   }
 
   getProductById(id: string): Observable<Product> {
-    const token = sessionStorage.getItem('USER_TOKEN');
-    return this.http.get<Product>(`${this.apiUrl}/${id}`, {
-      headers: { Authorization: `Bearer ${token!}` },
-    });
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
 
   saveProduct(product: Product): Observable<void> {
