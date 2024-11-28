@@ -31,13 +31,13 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
           router.navigate(['/auth/login']);
         }
 
-        if (err.status === HttpStatusCode.InternalServerError) {
-          alert('Erro de servidor');
-        }
+        // if (err.status === HttpStatusCode.InternalServerError) {
+        //   alert('Erro de servidor');
+        // }
 
-        if (err.status === HttpStatusCode.NotFound) {
-          alert('Url não encontrada');
-        }
+        // if (err.status === HttpStatusCode.NotFound) {
+        //   alert('Url não encontrada');
+        // }
       }
 
       return throwError(() => err);

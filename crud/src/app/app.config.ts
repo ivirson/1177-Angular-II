@@ -6,12 +6,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { routes } from './app.routes';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
+import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, loadingInterceptor])),
     provideEnvironmentNgxMask(),
   ],
 };
