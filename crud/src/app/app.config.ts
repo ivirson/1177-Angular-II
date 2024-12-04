@@ -7,6 +7,7 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { routes } from './app.routes';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { provideStore } from '@ngrx/store';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,5 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([authInterceptor, loadingInterceptor])),
     provideEnvironmentNgxMask(),
-  ],
+    provideStore()
+],
 };
