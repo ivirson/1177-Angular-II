@@ -93,6 +93,8 @@ export class RegisterComponent implements OnInit {
   }: FormControlState<string>): { [key: string]: boolean } | null {
     if (!value) return { requiredDocument: true };
 
+    console.log('value', value);
+
     value = value.replace(/[^\d]+/g, '');
     if (value == '') return { emptyDocument: true };
 
